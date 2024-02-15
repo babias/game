@@ -14,7 +14,7 @@ const ChatRoom = () => {
   useEffect(() => {
     // Connect to the Socket.IO server when the user is connected
     if (connected) {
-      socket.current = io('http://localhost:3001');
+      socket.current = io('http://localhost:5000');
 
       // Handle incoming messages from the server
       socket.current.on('message', (newMessage) => {
