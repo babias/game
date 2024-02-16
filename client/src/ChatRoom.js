@@ -14,7 +14,7 @@ const ChatRoom = () => {
   useEffect(() => {
     // Connect to the Socket.IO server when the user is connected
     if (connected) {
-      socket.current = io('http://localhost:5000');
+      socket.current = io('https://game-server-flnl.onrender.com/');
 
       // Handle incoming messages from the server
       socket.current.on('message', (newMessage) => {
