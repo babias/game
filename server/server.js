@@ -1,4 +1,3 @@
-// index.js   - the
 const http = require('http');
 const express = require('express');
 const { Server } = require('socket.io');
@@ -23,8 +22,16 @@ app.use((req, res, next) => {
   next();
 });
 
+// Serve a message when accessing the root URL
+app.get('/', (req, res) => {
+  res.send('Server connected');
+});
+
 io.on('connection', (socket) => {
   connectedUsers++;
+
+  // Display "Server connected" when a client connects
+  console.log('Server connected');
 
   // Broadcast the updated user count to all clients
   io.emit('userCount', connectedUsers);
